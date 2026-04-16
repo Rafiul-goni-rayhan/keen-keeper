@@ -15,7 +15,6 @@ export default function FriendDetailsPage() {
       try {
         const response = await fetch("/friends.json");
         const data = await response.json();
-        // ইউআরএল থেকে পাওয়া আইডি দিয়ে নির্দিষ্ট বন্ধুকে খুঁজে বের করা
         const foundFriend = data.find((f) => f.id.toString() === id);
         setFriend(foundFriend);
         setLoading(false);
@@ -44,10 +43,7 @@ export default function FriendDetailsPage() {
     }
   };
 
-  // বাটন ক্লিক হ্যান্ডলার ও টোস্ট নোটিফিকেশন
-   // বাটন ক্লিক হ্যান্ডলার, টোস্ট নোটিফিকেশন এবং লোকাল স্টোরেজে সেভ করা
   const handleInteraction = (type) => {
-    // ১. টোস্ট দেখানো
     toast.success(`${type} with ${friend?.name} recorded!`, {
       style: {
         border: '1px solid #1f4b3f',
@@ -60,16 +56,15 @@ export default function FriendDetailsPage() {
       },
     });
 
-    // ২. নতুন টাইমলাইন এন্ট্রি তৈরি করা
     const newEntry = {
-      id: Date.now(), // ইউনিক আইডি
+      id: Date.now(), 
       friendId: friend.id,
-      type: type, // Call, Text, or Video
+      type: type, 
       title: `${type} with ${friend.name}`,
       date: new Date().toISOString(),
     };
 
-    // ৩. লোকাল স্টোরেজে সেভ করা (যাতে টাইমলাইন পেজে দেখাতে পারি)
+
     const existingTimeline = JSON.parse(localStorage.getItem('timeline')) || [];
     const updatedTimeline = [newEntry, ...existingTimeline]; // নতুনটা সবার উপরে থাকবে
     localStorage.setItem('timeline', JSON.stringify(updatedTimeline));
