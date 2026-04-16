@@ -66,7 +66,6 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Summary Cards (Now Dynamic!) */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
         <div className="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100">
           <h3 className="text-4xl font-bold text-[#244D3F] mb-2">
