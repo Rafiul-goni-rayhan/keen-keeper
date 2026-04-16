@@ -8,19 +8,16 @@ export default function TimelinePage() {
   const [filter, setFilter] = useState("All");
 
   useEffect(() => {
-    // পেজ লোড হলে লোকাল স্টোরেজ থেকে ডাটা নিয়ে আসব
     const savedTimeline = JSON.parse(localStorage.getItem('timeline')) || [];
     setTimeline(savedTimeline);
   }, []);
 
-  // আইকন সেট করার ফাংশন
   const getIcon = (type) => {
     if (type === 'Call') return <FiPhone className="text-xl text-[#244D3F]" />;
     if (type === 'Text') return <FiMessageSquare className="text-xl text-blue-500" />;
     if (type === 'Video') return <FiVideo className="text-xl text-red-500" />;
   };
 
-  // Challenge C2: ডাটা ফিল্টার করার লজিক
   const filteredTimeline = filter === "All" 
     ? timeline 
     : timeline.filter(item => item.type === filter);
@@ -44,7 +41,6 @@ export default function TimelinePage() {
         </select>
       </div>
 
-      {/* Timeline List */}
       <div className="space-y-4">
         {filteredTimeline.length === 0 ? (
           <div className="text-center py-16 bg-white rounded-xl border border-gray-100">
