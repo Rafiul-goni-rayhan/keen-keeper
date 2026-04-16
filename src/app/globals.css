@@ -1,4 +1,15 @@
 @import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --color-primary: #1f4b3f;
+}
+
+body {
+  background-color: #f8fafc;
+}
+
+/* @import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -23,4 +34,4 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
