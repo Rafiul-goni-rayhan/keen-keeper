@@ -8,10 +8,8 @@ export default function StatsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // লোকাল স্টোরেজ থেকে টাইমলাইনের ডাটা নিয়ে আসা
     const timeline = JSON.parse(localStorage.getItem("timeline")) || [];
 
-    // কোন টাইপের ইন্টারঅ্যাকশন কতবার হয়েছে তার হিসাব বের করা
     let callCount = 0;
     let textCount = 0;
     let videoCount = 0;
@@ -22,22 +20,18 @@ export default function StatsPage() {
       if (entry.type === "Video") videoCount++;
     });
 
-    // Recharts-এর জন্য ডাটা ফরম্যাট করা
     const formattedData = [
       { name: "Call", value: callCount },
       { name: "Text", value: textCount },
       { name: "Video", value: videoCount },
     ];
 
-    // যদি কোনো ডাটা না থাকে, তাহলে চার্ট দেখানোর দরকার নেই
     setChartData(formattedData.filter(data => data.value > 0));
     setLoading(false);
   }, []);
 
-  // চার্টের রং (ফিগমা এবং আমাদের আইকনের রঙের সাথে মিল রেখে)
   const COLORS = ["#1f4b3f", "#3b82f6", "#ef4444"]; 
 
-  // কাস্টম লিজেন্ড (নিচের লেবেলগুলো) ডিজাইন করার জন্য
   const renderLegendText = (value, entry) => {
     return <span className="text-gray-700 font-medium ml-1">{value}</span>;
   };
@@ -70,9 +64,9 @@ export default function StatsPage() {
                   data={chartData}
                   cx="50%"
                   cy="50%"
-                  innerRadius={90}  // ভেতরের ফাঁকা অংশের সাইজ
-                  outerRadius={130} // চার্টের সাইজ
-                  paddingAngle={5}  // স্লাইসগুলোর মাঝের ফাঁকা জায়গা
+                  innerRadius={90} 
+                  outerRadius={130} 
+                  paddingAngle={5}  
                   dataKey="value"
                   stroke="none"
                 >

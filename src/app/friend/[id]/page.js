@@ -92,7 +92,6 @@ export default function FriendDetailsPage() {
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        {/* Left Column - Friend Info Card */}
         <div className="lg:col-span-1">
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col items-center text-center">
             <img
@@ -120,7 +119,6 @@ export default function FriendDetailsPage() {
             <p className="text-sm text-gray-500 italic mb-2">"{friend.bio}"</p>
             <p className="text-xs text-gray-400 mb-8">Preferred: {friend.email}</p>
 
-            {/* Action Buttons */}
             <div className="w-full space-y-3">
               <button className="w-full py-2.5 flex justify-center items-center gap-2 border border-gray-200 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
                 <FiClock /> Snooze 2 Weeks
@@ -135,10 +133,8 @@ export default function FriendDetailsPage() {
           </div>
         </div>
 
-        {/* Right Column - Stats & Quick Check-in */}
         <div className="lg:col-span-2 space-y-6">
           
-          {/* Stats Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100">
               <h3 className="text-3xl font-bold text-gray-900 mb-2">{friend.days_since_contact}</h3>
@@ -156,7 +152,6 @@ export default function FriendDetailsPage() {
             </div>
           </div>
 
-          {/* Relationship Goal Card */}
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
             <div>
               <h3 className="text-sm font-bold text-gray-900 mb-1">Relationship Goal</h3>
