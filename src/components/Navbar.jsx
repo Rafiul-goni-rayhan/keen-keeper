@@ -21,7 +21,7 @@ export default function Navbar() {
           {/* logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-2xl font-bold text-gray-900">
-              KeenKeeper
+            <span>Keen</span><span  style={{ color: "#244D3F" }}>Keeper</span>
             </Link>
           </div>
 
@@ -35,7 +35,7 @@ export default function Navbar() {
                   href={link.href}
                   className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     isActive
-                      ? "bg-primary text-white" 
+                      ? "bg-[#244D3F] text-white" 
                       : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                   }`}
                 >

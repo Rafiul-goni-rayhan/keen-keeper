@@ -15,7 +15,7 @@ export default function TimelinePage() {
 
   // আইকন সেট করার ফাংশন
   const getIcon = (type) => {
-    if (type === 'Call') return <FiPhone className="text-xl text-primary" />;
+    if (type === 'Call') return <FiPhone className="text-xl text-[#244D3F]" />;
     if (type === 'Text') return <FiMessageSquare className="text-xl text-blue-500" />;
     if (type === 'Video') return <FiVideo className="text-xl text-red-500" />;
   };

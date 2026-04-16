@@ -10,7 +10,6 @@ export default function Home() {
   const [interactionsThisMonth, setInteractionsThisMonth] = useState(0);
 
   useEffect(() => {
-    // বন্ধুদের ডাটা ফেচ করা
     const fetchFriends = async () => {
       try {
         const response = await fetch("/friends.json");
@@ -26,7 +25,6 @@ export default function Home() {
     };
     fetchFriends();
 
-    // লোকাল স্টোরেজ থেকে এই মাসের ইন্টারঅ্যাকশনের হিসাব বের করা
     const timeline = JSON.parse(localStorage.getItem('timeline')) || [];
     const currentMonth = new Date().getMonth();
     const currentYear = new Date().getFullYear();
@@ -48,7 +46,6 @@ export default function Home() {
     }
   };
 
-  // ডায়নামিক ডাটা হিসাব করা (লোডিং শেষ হলে এগুলো আপডেট হবে)
   const totalFriends = friends.length;
   const onTrackCount = friends.filter(f => f.status.toLowerCase() === "on-track").length;
   const needAttentionCount = friends.filter(f => 
@@ -64,7 +61,7 @@ export default function Home() {
         <p className="text-gray-500 mb-8">
           Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.
         </p>
-        <button className="btn bg-primary text-white hover:bg-[#15352c] border-none rounded-md px-6">
+        <button className="btn bg-[#244D3F] text-white hover:bg-[#15352c] border-none rounded-md px-6">
           <FiPlus className="text-lg" /> Add a Friend
         </button>
       </div>
@@ -72,25 +69,25 @@ export default function Home() {
       {/* Summary Cards (Now Dynamic!) */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
         <div className="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100">
-          <h3 className="text-4xl font-bold text-primary mb-2">
+          <h3 className="text-4xl font-bold text-[#244D3F] mb-2">
             {loading ? "-" : totalFriends}
           </h3>
           <p className="text-sm text-gray-500 font-medium">Total Friends</p>
         </div>
         <div className="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100">
-          <h3 className="text-4xl font-bold text-primary mb-2">
+          <h3 className="text-4xl font-bold text-[#244D3F] mb-2">
             {loading ? "-" : onTrackCount}
           </h3>
           <p className="text-sm text-gray-500 font-medium">On Track</p>
         </div>
         <div className="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100">
-          <h3 className="text-4xl font-bold text-primary mb-2">
+          <h3 className="text-4xl font-bold text-[#244D3F] mb-2">
             {loading ? "-" : needAttentionCount}
           </h3>
           <p className="text-sm text-gray-500 font-medium">Need Attention</p>
         </div>
         <div className="bg-white p-6 rounded-xl shadow-sm text-center border border-gray-100">
-          <h3 className="text-4xl font-bold text-primary mb-2">
+          <h3 className="text-4xl font-bold text-[#244D3F] mb-2">
             {interactionsThisMonth}
           </h3>
           <p className="text-sm text-gray-500 font-medium">Interactions This Month</p>
@@ -101,7 +98,7 @@ export default function Home() {
         <h2 className="text-xl font-bold text-gray-900 mb-6">Your Friends</h2>
         {loading ? (
           <div className="flex justify-center items-center py-20">
-            <span className="loading loading-spinner loading-lg text-primary"></span>
+            <span className="loading loading-spinner loading-lg text-[#244D3F]"></span>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
