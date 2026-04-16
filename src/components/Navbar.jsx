@@ -18,14 +18,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
-          {/* logo */}
+          
           <div className="flex-shrink-0">
             <Link href="/" className="text-2xl font-bold text-gray-900">
             <span>Keen</span><span  style={{ color: "#244D3F" }}>Keeper</span>
             </Link>
           </div>
 
-          {/* navlinks */}
+        
           <div className="flex space-x-2 sm:space-x-4">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
